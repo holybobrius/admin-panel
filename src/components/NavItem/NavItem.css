@@ -1,0 +1,10 @@
+.navItem {
+    border: 1px solid black;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+p {
+    padding: 7px 20px;
+    margin: 0;
+}

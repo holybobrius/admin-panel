@@ -1,0 +1,125 @@
+{
+    "$schema": "https://alexeevv.ru/data.schema.json",
+    "snow": false,
+    "pages": [
+       {
+          "path": "welcome",
+          "title": "Welcome",
+          "text": "I'm frontend developer from Moscow working for Tinkoff.\nHire me: [habr] (ru), [indeed].\nGithub: [gh],\n1/2 of [ghteam].\n\nAbout: [about],\nProjects: [projects],\nContacts: [contacts].",
+          "links": [
+             {
+                "id": "gh",
+                "text": "@denisalexeevv",
+                "href": "https://github.com/denisalexeevv"
+             },
+             {
+                "id": "ghteam",
+                "text": "@yet-another-devteam",
+                "href": "https://github.com/yet-another-devteam"
+             },
+             {
+                "id": "habr",
+                "text": "Habr Career",
+                "href": "https://career.habr.com/alexeevv"
+             },
+             {
+                "id": "indeed",
+                "text": "Indeed.com",
+                "href": "https://my.indeed.com/p/denisa-b68pjdf"
+             },
+             {
+                "id": "about",
+                "text": "about.html",
+                "href": "/about",
+                "router": true
+             },
+             {
+                "id": "projects",
+                "text": "projects.html",
+                "href": "/projects",
+                "router": true
+             },
+             {
+                "id": "contacts",
+                "text": "contacts.html",
+                "href": "/contacts",
+                "router": true
+             }
+          ]
+       },
+       {
+          "path": "about",
+          "title": "About",
+          "text": "Some info will be here someday."
+       },
+       {
+          "path": "contacts",
+          "title": "Contacts",
+          "text": "VK: [vk],\nTwitter: [tw],\nTelegram: [tg],\nInstagram: [inst],\nE-mail: [email]",
+          "links": [
+             {
+                "id": "vk",
+                "text": "@denis.alexeevv",
+                "href": "https://vk.com/denis.alexeevv"
+             },
+             {
+                "id": "tw",
+                "text": "@denis_alexeevv",
+                "href": "https://twitter.com/denis_alexeevv"
+             },
+             {
+                "id": "tg",
+                "text": "@denis_alexeevv",
+                "href": "https://t.me/denis_alexeevv"
+             },
+             {
+                "id": "inst",
+                "text": "@denis.alexeevv",
+                "href": "https://instagram.com/denis.alexeevv"
+             },
+             {
+                "id": "email",
+                "text": "hi@alexeevv.ru",
+                "href": "mailto:hi@alexeevv.ru"
+             }
+          ]
+       },
+       {
+          "path": "projects",
+          "title": "Projects",
+          "text": "YasoSu - Pastebin for modern web: [yasosu],\nMoscow air quality monitoring (ru): [airqua] (WIP),\nTelegram inline color sender: [colorbot] ([colorbotgit]),\nVolen/Stepanovo (skipass balance checker) (ru): [volenbot],\nInline yandex market bot (ru): [yapricebot]",
+          "links": [
+             {
+                "id": "yasosu",
+                "text": "yaso.su",
+                "href": "https://yaso.su"
+             },
+             {
+                "id": "airqua",
+                "text": "airqua.ru",
+                "href": "https://airqua.ru"
+             },
+             {
+                "id": "colorbot",
+                "text": "@sendcolorbot",
+                "href": "https://t.me/sendcolorbot"
+             },
+             {
+                "id": "colorbotgit",
+                "text": "github",
+                "href": "https://github.com/yet-another-devteam/SendColorBot"
+             },
+             {
+                "id": "volenbot",
+                "text": "@volenstepbot",
+                "href": "https://t.me/volenstepbot"
+             },
+             {
+                "id": "yapricebot",
+                "text": "@yapricebot",
+                "href": "https://t.me/yapricebot"
+             }
+          ]
+       }
+    ]
+ }
