@@ -8,6 +8,7 @@ import 'react-tabs/style/react-tabs.css'
 import './App.css';
 import { useEffect, useState } from 'react';
 import PageView from './components/PageView/PageView';
+import NewPageView from './components/NewPageView/NewPageView'
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
         <Navbar titles={data.pages} />
         <Routes>
           {data.pages ? data.pages.map(page => <Route path={`/${page.path}`} element={<PageView page={page} />}/>) : ''}
+          <Route path={`new`} element={<NewPageView />} />
         </Routes>
       </Router>
     </div>

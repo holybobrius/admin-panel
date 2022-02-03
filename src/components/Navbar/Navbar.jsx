@@ -6,7 +6,7 @@ const Navbar = props => {
     return (
         <div className='navbar'>
             {props.titles ? props.titles.map(item => <NavItem title={item.title} path={item.path} />) : ''}
-            <NavItem title='+'/>
+            <NavItem title='+' path='new' />
         </div>
     )
 }
