@@ -1,4 +1,5 @@
 import './PageView.css'
+import LinksForm from '../LinksForm/LinksForm'
 
 const PageView = props => {
     return (
@@ -10,28 +11,12 @@ const PageView = props => {
                 <input className='textInput' value={props.page.title} />
                 <label>text: </label>
                 <textarea value={props.page.text} />
-            </form>
-            <form>
-                {props.page.links ? props.page.links.map(link => 
-                    <div>
-                        <label>id:</label>
-                        <input value={link.id} />
-                        <label>text:</label>
-                        <input value={link.text} />
-                        <label>href:</label>
-                        <input value={link.href} />
-                        <input type='checkbox' />
-                    </div>    
-                ): ''}
-                <div>
-                        <label>id:</label>
-                        <input />
-                        <label>text:</label>
-                        <input />
-                        <label>href:</label>
-                        <input />
-                        <input type='checkbox' />
-                    </div>   
+            
+                {props.page.links && props.page.links.map(link => 
+                       <LinksForm link={link} /> 
+                )}
+                <LinksForm /> 
+                <input type='submit' />
             </form>
         </div>
     )
