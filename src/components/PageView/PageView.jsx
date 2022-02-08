@@ -17,12 +17,12 @@ const PageView = props => {
         setTempPage(page)
     }, [page])
 
-    console.log(tempPage)
     
 
     const handleSubmit = event => {
         event.preventDefault();
-        props.handlePageUpdate();
+        dispatch(updatePage(tempPage))
+        // setImmediate(() => navigate(`/${path}`)) //FIXME
     }
 
     const handleInput = (type) => (event) => { //event.target.value
@@ -30,16 +30,16 @@ const PageView = props => {
             ...tempPage,
             [type]: event.target.value
         })
-        console.log('changing ', page)
     }
 
     const handleLinkUpdate = link => {
+        console.log('link', link)
         setTempPage({
             ...tempPage,
             links: tempPage.links.map(n => n.id === link.id ? link : n)
         })
-        // setImmediate(() => navigate(`/${path}`)) //FIXME
     }
+
 
     if(!tempPage) return <div>Loading...</div>;
     return (
