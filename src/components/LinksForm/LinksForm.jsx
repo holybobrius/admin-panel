@@ -1,33 +1,44 @@
 import { useState } from "react/cjs/react.development"
 
 const LinksForm = ({ link, handleLinkSubmit }) => {
-
-    const [id, setId] = useState(link ? link.id : '');
-    const [text, setText] = useState(link ? link.text : '')
-    const [href, setHref] = useState(link ? link.href : '')
-    const [router, setRouter] = useState(link ? link.router : false)
+    
+    const [tempLink, setTempLink] = useState(link ? {...link, router: !link.router ? false : true} : {})
 
     const handleSubmit = event => {
         event.preventDefault();
         const updatedLink = {
-            id,
-            text,
-            href,
-            router
+            id: tempLink.id,
+            text: tempLink.text,
+            href: tempLink.href,
+            router: tempLink.router
         }
         console.log('link submit', updatedLink)
         handleLinkSubmit(updatedLink);
+    }
+
+    const handleInput = (type) => (event) => {
+        if(type === 'router') {
+            setTempLink({
+                ...tempLink,
+                router: event.target.checked
+            })
+        } else {
+            setTempLink({
+                ...tempLink,
+                [type]: event.target.value
+            })
+        }
     }
     
     return(
         <div>
             <label>id:</label>
-            <input value={id} onChange={event => setId(event.target.value)} />
+            <input value={tempLink.id} onChange={handleInput('id')} />
             <label>text:</label>
-            <input value={text} onChange={event => setText(event.target.value)} />
+            <input value={tempLink.text} onChange={handleInput('text')} />
             <label>href:</label>
-            <input value={href} onChange={event => setHref(event.target.value)} />
-            <input type='checkbox' checked={router} onChange={event => setRouter(event.target.checked)}/>
+            <input value={tempLink.href} onChange={handleInput('href')} />
+            <input type='checkbox' checked={tempLink.router} onChange={handleInput('router')}/>
             <input onClick={handleSubmit} type='submit' />
         </div>
     )
