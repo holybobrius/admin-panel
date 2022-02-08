@@ -9,29 +9,27 @@ const LinksForm = ({ link, handleLinkSubmit }) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('link submit')
         const updatedLink = {
             id,
             text,
             href,
             router
         }
+        console.log('link submit', updatedLink)
         handleLinkSubmit(updatedLink);
     }
     
     return(
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>id:</label>
-                <input value={id} onChange={event => setId(event.target.value)} />
-                <label>text:</label>
-                <input value={text} onChange={event => setText(event.target.value)} />
-                <label>href:</label>
-                <input value={href} onChange={event => setHref(event.target.value)} />
-                <input type='checkbox' checked={router} onChange={event => setRouter(event.target.checked)}/>
-                <input type='submit' />
-            </div>
-        </form>
+        <div>
+            <label>id:</label>
+            <input value={id} onChange={event => setId(event.target.value)} />
+            <label>text:</label>
+            <input value={text} onChange={event => setText(event.target.value)} />
+            <label>href:</label>
+            <input value={href} onChange={event => setHref(event.target.value)} />
+            <input type='checkbox' checked={router} onChange={event => setRouter(event.target.checked)}/>
+            <input onClick={handleSubmit} type='submit' />
+        </div>
     )
 }
 
