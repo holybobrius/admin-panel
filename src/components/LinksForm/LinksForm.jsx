@@ -1,8 +1,18 @@
 import { useState } from "react/cjs/react.development"
 
 const LinksForm = ({ link, handleLinkSubmit }) => {
-    
-    const [tempLink, setTempLink] = useState(link ? {...link, router: !link.router ? false : true} : {})
+
+    const [tempLink, setTempLink] = useState(
+        link ? 
+        {...link, router: !link.router ? false : true}
+        : 
+        {
+            id: '',
+            text: '',
+            href: '',
+            router: false
+        }
+    )
 
     const handleSubmit = event => {
         event.preventDefault();
