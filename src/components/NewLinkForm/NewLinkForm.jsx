@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState } from "react/cjs/react.development"
 
-const LinksForm = props => {
+const NewLinksForm = props => {
 
     const [tempLink, setTempLink] = useState(
         props.link ? 
@@ -22,7 +22,13 @@ const LinksForm = props => {
             href: tempLink.href,
             router: tempLink.router
         }
-        props.handleLinkUpdate(updatedLink);
+        props.handleLinkPost(updatedLink);
+        setTempLink({
+            id: '',
+            text: '',
+            href: '',
+            router: false
+        })
     }
 
     const handleInput = (type) => (event) => {
@@ -51,4 +57,4 @@ const LinksForm = props => {
     )
 }
 
-export default LinksForm
+export default NewLinksForm

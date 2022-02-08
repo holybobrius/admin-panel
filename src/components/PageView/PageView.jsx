@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router'
 import { useSelector } from 'react-redux'
 import { updatePage } from '../../reducers/pagesReducer'
 import { useDispatch } from 'react-redux'
+import NewLinksForm from '../NewLinkForm/NewLinkForm'
 
 const PageView = props => {
     const { path } = useParams();
@@ -40,6 +41,13 @@ const PageView = props => {
         })
     }
 
+    const handleLinkPost = link => {
+        setTempPage({
+            ...tempPage,
+            links: tempPage.links.concat(link)
+        })
+    }
+
 
     if(!tempPage) return <div>Loading...</div>;
     return (
@@ -56,7 +64,7 @@ const PageView = props => {
                        <LinksForm key={link.id} link={link} handleLinkUpdate={handleLinkUpdate} /> 
                 )}
 
-                <LinksForm /> 
+                <NewLinksForm handleLinkPost={handleLinkPost}/> 
                 <input type='submit' />
             </form>
         </div>

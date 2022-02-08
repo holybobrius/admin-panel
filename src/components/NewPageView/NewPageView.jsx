@@ -3,6 +3,7 @@ import LinksForm from '../LinksForm/LinksForm'
 import { useState } from 'react/cjs/react.development'
 import { useDispatch } from 'react-redux'
 import { postPage } from '../../reducers/pagesReducer'
+import NewLinksForm from '../NewLinkForm/NewLinkForm'
 
 const PageView = props => {
 
@@ -34,6 +35,13 @@ const PageView = props => {
         dispatch(postPage(tempPage));
     }
 
+    const handleLinkPost = link => {
+        setTempPage({
+            ...tempPage,
+            links: tempPage.links.concat(link)
+        })
+    }
+
     return (
         <div className="pageView">
             <form onSubmit={handleSubmit}>
@@ -47,7 +55,7 @@ const PageView = props => {
                 {tempPage.links && tempPage.links.map(link => 
                        <LinksForm key={link.id} link={link} handleLinkUpdate={handleLinkUpdate}/> 
                 )}
-                <LinksForm />
+                <NewLinksForm handleLinkPost={handleLinkPost} />
                 <input type='submit' />
             </form>
         </div>
