@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar titles={pages} />
+        <Navbar />
         <Routes>
           <Route path='/:path' element={<PageView handlePageUpdate={handlePageUpdate} />} />
           <Route path='/new' element={<NewPageView />} />

@@ -4,14 +4,14 @@ const LinksForm = ({ link, handleLinkSubmit }) => {
 
     const [tempLink, setTempLink] = useState(
         link ? 
-        {...link, router: !link.router ? false : true}
+            {...link, router: !link.router ? false : true}
         : 
-        {
-            id: '',
-            text: '',
-            href: '',
-            router: false
-        }
+            {
+                id: '',
+                text: '',
+                href: '',
+                router: false
+            }
     )
 
     const handleSubmit = event => {
