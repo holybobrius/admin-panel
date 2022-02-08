@@ -1,10 +1,10 @@
 import { useState } from "react/cjs/react.development"
 
-const LinksForm = ({ link, handleLinkSubmit }) => {
+const LinksForm = props => {
 
     const [tempLink, setTempLink] = useState(
-        link ? 
-            {...link, router: !link.router ? false : true}
+        props.link ? 
+            {...props.link, router: !props.link.router ? false : true}
         : 
             {
                 id: '',
@@ -22,8 +22,7 @@ const LinksForm = ({ link, handleLinkSubmit }) => {
             href: tempLink.href,
             router: tempLink.router
         }
-        console.log('link submit', updatedLink)
-        handleLinkSubmit(updatedLink);
+        props.handleLinkUpdate(updatedLink);
     }
 
     const handleInput = (type) => (event) => {
@@ -42,8 +41,6 @@ const LinksForm = ({ link, handleLinkSubmit }) => {
     
     return(
         <div>
-            <label>id:</label>
-            <input value={tempLink.id} onChange={handleInput('id')} />
             <label>text:</label>
             <input value={tempLink.text} onChange={handleInput('text')} />
             <label>href:</label>
