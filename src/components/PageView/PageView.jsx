@@ -9,9 +9,16 @@ import { useDispatch } from 'react-redux'
 const PageView = props => {
     const { path } = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const page = useSelector(state => state.find(n => n.path === path))
+    const [tempPage, setTempPage] = useState()
+
+    useEffect(() => {
+        setTempPage(page)
+    }, [page])
+
+    console.log(tempPage)
+    
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -19,32 +26,33 @@ const PageView = props => {
     }
 
     const handleInput = (type) => (event) => { //event.target.value
-        dispatch(updatePage({
-            ...page,
+        setTempPage({
+            ...tempPage,
             [type]: event.target.value
-        }))
+        })
+        console.log('changing ', page)
     }
 
     const handleLinkUpdate = link => {
-        dispatch(updatePage({
-            ...page,
-            links: page.links.map(n => n.id === link.id ? link : n)
-        }))
-        setImmediate(() => navigate(`/${path}`)) //FIXME
+        setTempPage({
+            ...tempPage,
+            links: tempPage.links.map(n => n.id === link.id ? link : n)
+        })
+        // setImmediate(() => navigate(`/${path}`)) //FIXME
     }
 
-    if(!page) return <div>Loading...</div>;
+    if(!tempPage) return <div>Loading...</div>;
     return (
         <div className="pageView">
             <form onSubmit={handleSubmit}>
                 <label>path: </label>
-                <input className='textInput' value={page.path} onChange={handleInput('path')}/>
+                <input className='textInput' value={tempPage.path} onChange={handleInput('path')}/>
                 <label>title: </label>
-                <input className='textInput' value={page.title} onChange={handleInput('title')}/>
+                <input className='textInput' value={tempPage.title} onChange={handleInput('title')}/>
                 <label>text: </label>
-                <textarea value={page.text} onChange={handleInput('text')}/>
+                <textarea value={tempPage.text} onChange={handleInput('text')}/>
             
-                {page.links && page.links.map(link => 
+                {tempPage.links && tempPage.links.map(link => 
                        <LinksForm key={link.id} link={link} handleLinkUpdate={handleLinkUpdate} /> 
                 )}
 
