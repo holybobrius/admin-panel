@@ -2,7 +2,7 @@ import './NewPageView.css'
 import LinksForm from '../LinksForm/LinksForm'
 import { useState } from 'react/cjs/react.development'
 import { useDispatch } from 'react-redux'
-import { updatePage } from '../../reducers/pagesReducer'
+import { postPage } from '../../reducers/pagesReducer'
 
 const PageView = props => {
 
@@ -31,7 +31,7 @@ const PageView = props => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        // dispatch(postPage());
+        dispatch(postPage(tempPage));
     }
 
     return (
