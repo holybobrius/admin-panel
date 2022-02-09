@@ -10,6 +10,7 @@ import NewLinksForm from '../NewLinkForm/NewLinkForm'
 const PageView = props => {
     const { path } = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const page = useSelector(state => state.find(n => n.path === path))
     const [tempPage, setTempPage] = useState()
@@ -22,8 +23,8 @@ const PageView = props => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(updatePage(tempPage))
-        // setImmediate(() => navigate(`/${path}`)) //FIXME
+        dispatch(updatePage({ prev: page, new: tempPage }))
+        navigate(`/${tempPage.path}`) //FIXME
     }
 
     const handleInput = (type) => (event) => { //event.target.value

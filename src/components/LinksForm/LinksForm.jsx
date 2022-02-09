@@ -26,21 +26,17 @@ const LinksForm = props => {
     }
 
     const handleInput = (type) => (event) => {
-        if(type === 'router') {
             setTempLink({
-                ...tempLink,
-                router: event.target.checked
-            })
-        } else {
-            setTempLink({
-                ...tempLink,
-                [type]: event.target.value
-            })
-        }
+            ...tempLink,
+            [type]: type === 'router' ? 
+                event.target.checked : 
+                event.target.value
+        })
     }
-    
     return(
         <div>
+            <label>id: </label>
+            <input value={tempLink.id}/>
             <label>text:</label>
             <input value={tempLink.text} onChange={handleInput('text')} />
             <label>href:</label>

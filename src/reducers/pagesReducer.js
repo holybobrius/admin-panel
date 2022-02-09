@@ -3,7 +3,7 @@ const pagesReducer = (state = [], action) => {
         case 'FETCH':
             return state = action.data;
         case 'UPDATE':
-            return state = state.map(n => n.path === action.data.path ? action.data : n)
+            return state = state.map(n => n.path === action.data.prev.path ? action.data.new : n)
         case 'POST':
             return state = state.concat(action.data)
         default:
