@@ -34,11 +34,11 @@ const PageView = props => {
         })
     }
 
-    const handleLinkUpdate = link => {
+    const handleLinkUpdate = ({ oldLink, link })=> {
         console.log('link', link)
         setTempPage({
             ...tempPage,
-            links: tempPage.links.map(n => n.id === link.id ? link : n)
+            links: tempPage.links.map(n => n.id === oldLink.id ? link : n)
         })
     }
 

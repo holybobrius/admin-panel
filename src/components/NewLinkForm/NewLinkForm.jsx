@@ -47,6 +47,8 @@ const NewLinksForm = props => {
     
     return(
         <div>
+            <label>id:</label>
+            <input value={tempLink.text} onChange={handleInput('id')} />
             <label>text:</label>
             <input value={tempLink.text} onChange={handleInput('text')} />
             <label>href:</label>

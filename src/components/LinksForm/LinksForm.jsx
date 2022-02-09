@@ -22,7 +22,7 @@ const LinksForm = props => {
             href: tempLink.href,
             router: tempLink.router
         }
-        props.handleLinkUpdate(updatedLink);
+        props.handleLinkUpdate({ oldLink: props.link, link: updatedLink });
     }
 
     const handleInput = (type) => (event) => {
@@ -36,7 +36,7 @@ const LinksForm = props => {
     return(
         <div>
             <label>id: </label>
-            <input value={tempLink.id}/>
+            <input value={tempLink.id} onChange={handleInput('id')} />
             <label>text:</label>
             <input value={tempLink.text} onChange={handleInput('text')} />
             <label>href:</label>
