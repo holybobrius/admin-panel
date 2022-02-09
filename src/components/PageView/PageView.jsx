@@ -49,6 +49,22 @@ const PageView = props => {
         })
     }
 
+    const createLink = () => {
+        if(window.getSelection().toString() !== '') {
+            const newLink = {
+                id: `link${tempPage.links.length}`,
+                text: window.getSelection().toString(),
+                href: '',
+                router: false
+            }
+            setTempPage({
+                ...tempPage,
+                text: tempPage.text.replace(window.getSelection().toString(), `[${`link${tempPage.links.length}`}]`),
+                links: tempPage.links.concat(newLink)
+            })
+        }
+    }
+
 
     if(!tempPage) return <div>Loading...</div>;
     return (
@@ -58,7 +74,7 @@ const PageView = props => {
                 <input className='textInput' value={tempPage.path} onChange={handleInput('path')}/>
                 <label>title: </label>
                 <input className='textInput' value={tempPage.title} onChange={handleInput('title')}/>
-                <label>text: </label>
+                <label>text: <button onClick={createLink}>add link</button></label>
                 <textarea value={tempPage.text} onChange={handleInput('text')}/>
             
                 {tempPage.links && tempPage.links.map(link => 
