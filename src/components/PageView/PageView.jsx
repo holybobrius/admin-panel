@@ -38,6 +38,7 @@ const PageView = props => {
         console.log('link', link)
         setTempPage({
             ...tempPage,
+            text: tempPage.text.replace(`[${oldLink.id}]`, `[${link.id}]`),
             links: tempPage.links.map(n => n.id === oldLink.id ? link : n)
         })
     }
@@ -48,6 +49,7 @@ const PageView = props => {
             links: tempPage.links.concat(link)
         })
     }
+
 
     const createLink = () => {
         if(window.getSelection().toString() !== '') {
@@ -75,7 +77,7 @@ const PageView = props => {
                 <label>title: </label>
                 <input className='textInput' value={tempPage.title} onChange={handleInput('title')}/>
                 <label>text: <button onClick={createLink}>add link</button></label>
-                <textarea value={tempPage.text} onChange={handleInput('text')}/>
+                <textarea id='text' value={tempPage.text} onChange={handleInput('text')}/>
             
                 {tempPage.links && tempPage.links.map(link => 
                        <LinksForm key={link.id} link={link} handleLinkUpdate={handleLinkUpdate} /> 
