@@ -32,17 +32,17 @@ const LinksForm = props => {
                 event.target.checked : 
                 event.target.value
         })
+        
     }
     return(
         <div>
             <label>id: </label>
-            <input value={tempLink.id} onChange={handleInput('id')} />
+            <input value={tempLink.id} onChange={handleInput('id')} onBlur={handleSubmit}/>
             <label>text:</label>
-            <input value={tempLink.text} onChange={handleInput('text')} />
+            <input value={tempLink.text} onChange={handleInput('text')} onBlur={handleSubmit}/>
             <label>href:</label>
-            <input value={tempLink.href} onChange={handleInput('href')} />
-            <input type='checkbox' checked={tempLink.router} onChange={handleInput('router')}/>
-            <input onClick={handleSubmit} type='submit' />
+            <input value={tempLink.href} onChange={handleInput('href')} onBlur={handleSubmit}/>
+            <input type='checkbox' checked={tempLink.router} onChange={handleInput('router')} onBlur={handleSubmit} />
         </div>
     )
 }
