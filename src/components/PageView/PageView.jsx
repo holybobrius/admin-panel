@@ -76,7 +76,7 @@ const PageView = props => {
                 <input className='textInput' value={tempPage.path} onChange={handleInput('path')}/>
                 <label>title: </label>
                 <input className='textInput' value={tempPage.title} onChange={handleInput('title')}/>
-                <label>text: <button onClick={createLink}>add link</button></label>
+                <label>text: <button onClick={createLink}>&#128279;</button></label>
                 <textarea id='text' value={tempPage.text} onChange={handleInput('text')}/>
             
                 {tempPage.links && tempPage.links.map(link => 

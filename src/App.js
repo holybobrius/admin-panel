@@ -40,6 +40,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+          <Route path='/' element={<div>hi</div>} />
           <Route path='/:path' element={<PageView handlePageUpdate={handlePageUpdate} />} />
           <Route path='/new' element={<NewPageView />} />
         </Routes>

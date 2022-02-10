@@ -1,10 +1,25 @@
 .navItem {
-    border: 1px solid black;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-left: 1px solid rgb(117, 117, 117);
+    background-color: #2f2f2f;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 300ms ease;
+}
+
+.navItem:hover {
+    background-color: rgb(117, 117, 117);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    margin: 30px;
 }
 
 p {
     padding: 7px 20px;
-    margin: 0;
 }
