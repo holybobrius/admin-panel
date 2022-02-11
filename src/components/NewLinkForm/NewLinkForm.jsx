@@ -1,4 +1,5 @@
 import { useState } from "react/cjs/react.development"
+import './NewLinkForm.css'
 
 const NewLinksForm = props => {
 
@@ -22,13 +23,15 @@ const NewLinksForm = props => {
             href: tempLink.href,
             router: tempLink.router
         }
-        props.handleLinkPost(updatedLink);
-        setTempLink({
-            id: '',
-            text: '',
-            href: '',
-            router: false
-        })
+        if(tempLink.id && tempLink.text && tempLink.href !== '') {
+            props.handleLinkPost(updatedLink);
+            setTempLink({
+                id: '',
+                text: '',
+                href: '',
+                router: false
+            })
+        } 
     }
 
     const handleInput = (type) => (event) => {
@@ -46,15 +49,14 @@ const NewLinksForm = props => {
     }
     
     return(
-        <div>
+        <div className="linkForm">
             <label>id: </label>
-            <input value={tempLink.text} onChange={handleInput('id')} />
+            <input value={tempLink.id} onChange={handleInput('id')} onBlur={handleSubmit} placeholder="id"/>
             <label>text:</label>
-            <input value={tempLink.text} onChange={handleInput('text')} />
+            <input value={tempLink.text} onChange={handleInput('text')} onBlur={handleSubmit} placeholder="text"/>
             <label>href:</label>
-            <input value={tempLink.href} onChange={handleInput('href')} />
-            <input type='checkbox' checked={tempLink.router} onChange={handleInput('router')}/>
-            <input onClick={handleSubmit} type='submit' />
+            <input value={tempLink.href} onChange={handleInput('href')} onBlur={handleSubmit} placeholder="href"/>
+            <input type='checkbox' checked={tempLink.router} onChange={handleInput('router')} onBlur={handleSubmit} />
         </div>
     )
 }

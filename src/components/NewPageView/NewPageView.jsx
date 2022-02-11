@@ -44,11 +44,17 @@ const PageView = props => {
 
     return (
         <div className="pageView">
-            <form onSubmit={handleSubmit}>
-                <label>path: </label>
-                <input className='textInput' value={tempPage.path} onChange={handleInput('path')} />
-                <label>title: </label>
-                <input className='textInput' value={tempPage.title} onChange={handleInput('title')} />
+            <form onSubmit={handleSubmit} className={'pageForm'}>
+                <div className='topInputs'>
+                    <div>
+                        <label>path: </label>
+                        <input className='textInput' value={tempPage.path} onChange={handleInput('path')} />
+                    </div>
+                    <div>
+                        <label>title: </label>
+                        <input className='textInput' value={tempPage.title} onChange={handleInput('title')} />
+                    </div>
+                </div>
                 <label>text: </label>
                 <textarea value={tempPage.text} onChange={handleInput('text')} />
 
@@ -56,7 +62,7 @@ const PageView = props => {
                        <LinksForm key={link.id} link={link} handleLinkUpdate={handleLinkUpdate}/> 
                 )}
                 <NewLinksForm handleLinkPost={handleLinkPost} />
-                <input type='submit' />
+                <input type='submit' className='submitForm' />
             </form>
         </div>
     )

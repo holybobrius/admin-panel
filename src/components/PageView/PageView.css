@@ -1,3 +1,21 @@
+.pageView {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageForm {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.topInputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
 .mainForm {
     display: flex;
     flex-direction: column;
@@ -7,8 +25,44 @@
     width: 200px;
 }
 
+.textareaLabel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.submitForm {
+    width: 200px;
+    height: 40px;
+    align-self: center;
+    margin-top: 15px;
+    border: 1px solid rgb(117, 117, 117);
+    transition: 300ms ease;
+    cursor: pointer;
+}
+
+.submitForm:hover {
+    background-color: rgb(117, 117, 117);
+}
+
+.addLinkButton {
+    background-color: #313131;
+    border-style: none;
+    border: 1px solid rgb(117, 117, 117);
+    height: 30px;
+    border-radius: 50%;
+    transition: 300ms ease;
+    cursor: pointer;
+}
+
+.addLinkButton:hover {
+    background-color: rgb(117, 117, 117);
+}
+
 textarea { 
-    width: 300px;
+    width: 100% !important;
     height: 200px;
     background-color: #313131;
     border: none;
@@ -17,6 +71,7 @@ textarea {
     height: 3vh;
     border-radius: 5px;
     font-size: 1rem;
+    margin-bottom: 10px;
 }
 
 input {
@@ -27,4 +82,5 @@ input {
     height: 3vh;
     border-radius: 50px;
     font-size: 1rem;
+    padding: 5px 10px 5px 10px;
 }

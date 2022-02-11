@@ -1,7 +1,7 @@
 .navItem {
     border-left: 1px solid rgb(117, 117, 117);
     background-color: #2f2f2f;
-    height: 5vh;
+    height: 4vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,6 +10,10 @@
 }
 
 .navItem:hover {
+    background-color: rgb(117, 117, 117);
+}
+
+.active {
     background-color: rgb(117, 117, 117);
 }
 

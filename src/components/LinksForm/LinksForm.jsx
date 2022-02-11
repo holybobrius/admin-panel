@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './LinksForm.css'
 
 const LinksForm = props => {
 
@@ -35,7 +36,7 @@ const LinksForm = props => {
         
     }
     return(
-        <div>
+        <div className='linkForm'>
             <label>id: </label>
             <input value={tempLink.id} onChange={handleInput('id')} onBlur={handleSubmit}/>
             <label>text:</label>
