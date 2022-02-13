@@ -7,6 +7,7 @@ const fetchData = async () => {
 }
 
 const postData = async data => {
+    console.log(data)
     return await axios.post(baseUrl, data)
 }
 

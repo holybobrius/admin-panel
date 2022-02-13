@@ -6,6 +6,7 @@ import { postPage } from '../../reducers/pagesReducer'
 import NewLinksForm from '../NewLinkForm/NewLinkForm'
 import { useSelector } from 'react-redux'
 import dataServices from '../../services/dataServices'
+import store from '../../store'
 
 const PageView = props => {
 
@@ -36,7 +37,7 @@ const PageView = props => {
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(postPage(tempPage));
-        dataServices.postData(pages)
+        dataServices.postData(store.getState())
     }
 
     const handleLinkPost = link => {
