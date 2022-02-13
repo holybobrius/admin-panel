@@ -6,4 +6,8 @@ const fetchData = async () => {
     return response.data;
 }
 
-export default { fetchData }
+const postData = async data => {
+    return await axios.post(baseUrl, data)
+}
+
+export default { fetchData, postData }

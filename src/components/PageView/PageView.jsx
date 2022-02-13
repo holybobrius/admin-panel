@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { updatePage } from '../../reducers/pagesReducer'
 import { useDispatch } from 'react-redux'
 import NewLinksForm from '../NewLinkForm/NewLinkForm'
+import dataServices from '../../services/dataServices'
 
 const PageView = props => {
     const { path } = useParams();
@@ -13,6 +14,7 @@ const PageView = props => {
     const navigate = useNavigate();
 
     const page = useSelector(state => state.find(n => n.path === path))
+    const pages = useSelector(state => state)
     const [tempPage, setTempPage] = useState()
 
     useEffect(() => {
@@ -24,7 +26,8 @@ const PageView = props => {
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(updatePage({ prev: page, new: tempPage }))
-        navigate(`/${tempPage.path}`) //FIXME
+        navigate(`/${tempPage.path}`)
+        dataServices.postData(pages) //FIXME
     }
 
     const handleInput = (type) => (event) => { //event.target.value

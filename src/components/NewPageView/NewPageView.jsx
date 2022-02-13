@@ -4,10 +4,13 @@ import { useState } from 'react/cjs/react.development'
 import { useDispatch } from 'react-redux'
 import { postPage } from '../../reducers/pagesReducer'
 import NewLinksForm from '../NewLinkForm/NewLinkForm'
+import { useSelector } from 'react-redux'
+import dataServices from '../../services/dataServices'
 
 const PageView = props => {
 
     const dispatch = useDispatch();
+    const pages = useSelector(state => state);
     const [tempPage, setTempPage] = useState({
         path: '',
         title: '',
@@ -33,6 +36,7 @@ const PageView = props => {
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(postPage(tempPage));
+        dataServices.postData(pages)
     }
 
     const handleLinkPost = link => {
