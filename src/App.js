@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename='/admin'>
         <Navbar />
         <Routes>
           <Route path='/' element={<div>hi</div>} />
