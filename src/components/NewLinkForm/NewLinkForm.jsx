@@ -13,7 +13,7 @@ const NewLinksForm = props => {
     useEffect(() => {
         setTempLink(
             props.link ? 
-            {...props.link, router: !props.link.router ? false : true}
+            {...props.link, router: !props.link.router}
         : 
             {
                 id: '',

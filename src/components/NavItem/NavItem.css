@@ -1,4 +1,4 @@
-.navItem {
+.link-wrapper {
     border-left: 1px solid rgb(117, 117, 117);
     background-color: #2f2f2f;
     height: 4vh;
@@ -7,9 +7,10 @@
     justify-content: center;
     cursor: pointer;
     transition: 300ms ease;
+    text-decoration: none;
 }
 
-.navItem:hover {
+.link-wrapper:hover {
     background-color: rgb(117, 117, 117);
 }
 
@@ -17,9 +18,9 @@
     background-color: rgb(117, 117, 117);
 }
 
-a {
+.navItem {
     color: white;
-    text-decoration: none;
+    
     font-size: 1.25rem;
     margin: 30px;
 }
@@ -27,3 +28,4 @@ a {
 p {
     padding: 7px 20px;
 }
+
