@@ -32,7 +32,7 @@ const NewLinksForm = props => {
             href: tempLink.href,
             router: tempLink.router
         }
-        if(tempLink.id && tempLink.text && tempLink.href !== '') {
+        if(tempLink.href !== '') {
             props.handleLinkPost(updatedLink);
             setTempLink({
                 id: '',

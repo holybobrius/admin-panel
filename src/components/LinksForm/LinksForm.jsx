@@ -1,10 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './LinksForm.css'
 
 const LinksForm = props => {
-
     const [tempLink, setTempLink] = useState(
-        props.link ? 
+        {
+            id: '',
+            text: '',
+            href: '',
+            router: false
+        }
+    )
+
+    useEffect(() => {
+        setTempLink(
+            props.link ? 
             {...props.link, router: !props.link.router ? false : true}
         : 
             {
@@ -13,7 +22,8 @@ const LinksForm = props => {
                 href: '',
                 router: false
             }
-    )
+        )
+    }, [props.link])
 
     const handleSubmit = event => {
         event.preventDefault();

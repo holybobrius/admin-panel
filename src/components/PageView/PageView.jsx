@@ -1,12 +1,12 @@
 import './PageView.css'
 import LinksForm from '../LinksForm/LinksForm'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { useSelector } from 'react-redux'
 import { updatePage } from '../../reducers/pagesReducer'
 import { useDispatch } from 'react-redux'
 import NewLinksForm from '../NewLinkForm/NewLinkForm'
-import dataServices from '../../services/dataServices'
+import { postData } from '../../services/dataServices'
 import store from '../../store'
 
 const PageView = props => {
@@ -14,7 +14,11 @@ const PageView = props => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const page = useSelector(state => state.find(n => n.path === path))
+    const state = store.getState()
+    const page = useMemo(() => {
+        return state.find(n => n.path === path)
+    }, [state, path])
+
     const [tempPage, setTempPage] = useState()
 
     useEffect(() => {
@@ -27,7 +31,7 @@ const PageView = props => {
         event.preventDefault();
         dispatch(updatePage({ prev: page, new: tempPage }))
         navigate(`/${tempPage.path}`)
-        dataServices.postData(store.getState()) //FIXME
+        postData(store.getState())
     }
 
     const handleInput = (type) => (event) => { //event.target.value
@@ -55,7 +59,7 @@ const PageView = props => {
 
 
     const createLink = () => {
-        if(window.getSelection().toString() !== '') {
+        if(window.getSelection().toString()) {
             const newLink = {
                 id: `link${tempPage.links.length}`,
                 text: window.getSelection().toString(),
@@ -64,7 +68,7 @@ const PageView = props => {
             }
             setTempPage({
                 ...tempPage,
-                text: tempPage.text.replace(window.getSelection().toString(), `[${`link${tempPage.links.length}`}]`),
+                text: tempPage.text.replace(window.getSelection().toString(), `[link${tempPage.links.length}]`),
                 links: tempPage.links.concat(newLink)
             })
         }

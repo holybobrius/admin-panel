@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Layout, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import Navbar from './components/Navbar/Navbar';
-import dataServices from './services/dataServices';
+import { fetchData } from './services/dataServices';
 import 'react-tabs/style/react-tabs.css'
 import './App.css';
 import { useEffect, useState } from 'react';
@@ -16,7 +16,7 @@ function App() {
   const pages = useSelector(state => state)
 
   useEffect(() => {
-    dataServices.fetchData().then(res => dispatch(initPages(res.pages)))
+    fetchData().then(res => dispatch(initPages(res.pages)))
     console.log('pages', pages)
   }, [dispatch])
 

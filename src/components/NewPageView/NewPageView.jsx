@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { postPage } from '../../reducers/pagesReducer'
 import NewLinksForm from '../NewLinkForm/NewLinkForm'
-import dataServices from '../../services/dataServices'
+import { postData } from '../../services/dataServices'
 import store from '../../store'
 
 const PageView = props => {
@@ -35,7 +35,7 @@ const PageView = props => {
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(postPage(tempPage));
-        dataServices.postData(store.getState())
+        postData(store.getState())
     }
 
     const handleLinkPost = link => {
@@ -47,7 +47,7 @@ const PageView = props => {
 
     return (
         <div className="pageView">
-            <form onSubmit={handleSubmit} className={'pageForm'}>
+            <form onSubmit={handleSubmit} className='pageForm'>
                 <div className='topInputs'>
                     <div>
                         <label>path: </label>

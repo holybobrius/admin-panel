@@ -11,25 +11,19 @@ const pagesReducer = (state = [], action) => {
     }
 }
 
-export const initPages = data => {
-    return {
-        type: 'FETCH',
-        data
-    }
-}
+export const initPages = data => ({
+    type: 'FETCH',
+    data
+})
 
-export const postPage = data => {
-    return {
-        type: 'POST',
-        data
-    }
-}
+export const postPage = data => ({
+    type: 'POST',
+    data
+})
 
-export const updatePage = data => {
-    return {
-        type: 'UPDATE',
-        data
-    }
-}
+export const updatePage = data => ({
+    type: 'UPDATE',
+    data
+})
 
 export default pagesReducer;
