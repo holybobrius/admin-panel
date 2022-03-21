@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import PageView from './components/PageView/PageView';
 import NewPageView from './components/NewPageView/NewPageView'
 import { initPages } from './reducers/pagesReducer'
-import store from './store';
 
 function App() {
   
@@ -21,19 +20,10 @@ function App() {
     console.log('pages', pages)
   }, [dispatch])
 
-
-  
-
-
-  const handlePost = () => {
-
-  }
-
   const handlePageUpdate = page => {
     setData(data.pages.map(n => n.path === page.path ? page : n))
     
   }
-
 
   return (
     <div className="App">

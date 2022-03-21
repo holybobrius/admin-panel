@@ -4,14 +4,12 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { postPage } from '../../reducers/pagesReducer'
 import NewLinksForm from '../NewLinkForm/NewLinkForm'
-import { useSelector } from 'react-redux'
 import dataServices from '../../services/dataServices'
 import store from '../../store'
 
 const PageView = props => {
 
     const dispatch = useDispatch();
-    const pages = useSelector(state => state);
     const [tempPage, setTempPage] = useState({
         path: '',
         title: '',
