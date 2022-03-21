@@ -1,6 +1,6 @@
 import './NewPageView.css'
 import LinksForm from '../LinksForm/LinksForm'
-import { useState } from 'react/cjs/react.development'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { postPage } from '../../reducers/pagesReducer'
 import NewLinksForm from '../NewLinkForm/NewLinkForm'
